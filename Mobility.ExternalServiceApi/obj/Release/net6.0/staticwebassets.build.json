@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "letHZpoK6Cpz51Y60zwhS3rmfqJB81GlJOEv1sIpFYI=",
+  "Source": "Mobility.ExternalServiceApi",
+  "BasePath": "_content/Mobility.ExternalServiceApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

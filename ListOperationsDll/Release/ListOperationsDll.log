@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  dllmain.cpp
+C:\Users\yunus\source\repos\MobilityPay\ListOperationsDll\dllmain.cpp(10,12): warning C4518: '__declspec(dllexport)': storage-class or type specifier(s) unexpected here; ignored
+C:\Users\yunus\source\repos\MobilityPay\ListOperationsDll\dllmain.cpp(10,12): warning C4502: 'linkage specification' requires use of keyword 'extern' and must precede all other specifiers
+C:\Users\yunus\source\repos\MobilityPay\ListOperationsDll\dllmain.cpp(15,6): warning C4091: '__declspec(dllexport)': ignored on left of 'Node' when no variable is declared
+     Creating library C:\Users\yunus\source\repos\MobilityPay\Release\ListOperationsDll.lib and object C:\Users\yunus\source\repos\MobilityPay\Release\ListOperationsDll.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 97 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  ListOperationsDll.vcxproj -> C:\Users\yunus\source\repos\MobilityPay\Release\ListOperationsDll.dll
