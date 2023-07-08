@@ -1,0 +1,15 @@
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\bin\Debug\net6.0\Mobility.Console.exe
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\bin\Debug\net6.0\Mobility.Console.deps.json
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\bin\Debug\net6.0\Mobility.Console.runtimeconfig.json
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\bin\Debug\net6.0\Mobility.Console.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\bin\Debug\net6.0\Mobility.Console.pdb
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.csproj.AssemblyReference.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.AssemblyInfoInputs.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.AssemblyInfo.cs
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.csproj.CoreCompileInputs.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\refint\Mobility.Console.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.pdb
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\Mobility.Console.genruntimeconfig.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Console\obj\Debug\net6.0\ref\Mobility.Console.dll
