@@ -51,14 +51,12 @@ namespace Mobility.WebForms.Views.Employee
 
                 if (employee != null)
                 {
-                    // Çalışan bilgilerini güncelleyin
                     txtEmployeeId.Text = employee.Id.ToString();
                     txtFirstName.Text = employee.FirstName;
                     txtLastName.Text = employee.LastName;
                     txtMailAddress.Text = employee.MailAddress;
                     txtSalary.Text = employee.Salary.ToString();
                     txtAge.Text = employee.Age.ToString();
-
                 }
             }
         }
@@ -86,31 +84,24 @@ namespace Mobility.WebForms.Views.Employee
             }
             ClearTexts();
             BindEmployees();
-
         }
         protected void DeleteEmployee_Click(object sender, EventArgs e)
         {
-            // Seçilen çalışanın EmployeeId değerini al
             Button deleteButton = (Button)sender;
             int employeeId = Convert.ToInt32(deleteButton.CommandArgument);
 
-            // EmployeeId'ye göre çalışanı veritabanından sil
             using (MobilityContext dbContext = new MobilityContext())
             {
                 Models.Employee employee = dbContext.Employees.FirstOrDefault(emp => emp.Id == employeeId);
 
                 if (employee != null)
                 {
-                    // Çalışanı veritabanından silme işlemini gerçekleştirin
                     dbContext.Employees.Remove(employee);
                     dbContext.SaveChanges();
-
-                    // Silme işleminden sonra çalışan listesini güncelleyin
                     BindEmployees();
                 }
             }
         }
-
 
         protected void BindEmployees()
         {

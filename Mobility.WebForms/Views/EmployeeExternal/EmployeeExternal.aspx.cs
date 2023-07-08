@@ -25,8 +25,6 @@ namespace Mobility.WebForms.Views.EmployeeExternal
             int age = int.Parse(txtAge.Text);
             try
             {
-                string url = apiUrl + "Create";
-
                 ViewModels.EmployeeViewModel newEmployee = new ViewModels.EmployeeViewModel
                 {
                     FirstName = firstName,
@@ -72,7 +70,6 @@ namespace Mobility.WebForms.Views.EmployeeExternal
                         txtMailAddress.Text = employee.MailAddress;
                         txtSalary.Text = employee.Salary.ToString();
                         txtAge.Text = employee.Age.ToString();
-
                     }
                 }
             }
@@ -103,7 +100,6 @@ namespace Mobility.WebForms.Views.EmployeeExternal
         }
         protected void DeleteEmployee_Click(object sender, EventArgs e)
         {
-            // Seçilen çalışanın EmployeeId değerini al
             Button deleteButton = (Button)sender;
             int employeeId = Convert.ToInt32(deleteButton.CommandArgument);
             DeleteEmployee(employeeId);
@@ -115,23 +111,15 @@ namespace Mobility.WebForms.Views.EmployeeExternal
         {
             using (HttpClient client = new HttpClient())
             {
-                try
-                {
-                    var createUrl = apiUrl + "GetAll";
+                var createUrl = apiUrl + "GetAll";
+                HttpResponseMessage response = (client.GetAsync(createUrl)).Result;
 
-                    HttpResponseMessage response = (client.GetAsync(createUrl)).Result;
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string responseContent = (response.Content.ReadAsStringAsync()).Result;
-                        var employees = JsonConvert.DeserializeObject<List<Models.Employee>>(responseContent);
-                        gridEmployees.DataSource = employees;
-                        gridEmployees.DataBind();
-                    }
-                }
-                catch (Exception ex)
+                if (response.IsSuccessStatusCode)
                 {
-                    Console.WriteLine("Hata oluştu: " + ex.Message);
+                    string responseContent = (response.Content.ReadAsStringAsync()).Result;
+                    var employees = JsonConvert.DeserializeObject<List<Models.Employee>>(responseContent);
+                    gridEmployees.DataSource = employees;
+                    gridEmployees.DataBind();
                 }
             }
         }
@@ -152,63 +140,46 @@ namespace Mobility.WebForms.Views.EmployeeExternal
         private void DeleteEmployee(int id)
         {
             HttpClient client = new HttpClient();
-            try
-            {
-                string url = apiUrl + "Delete/" + id;
+            string url = apiUrl + "Delete/" + id;
 
-                HttpResponseMessage response;
-                response = (client.DeleteAsync(url)).Result;
+            HttpResponseMessage response;
+            response = (client.DeleteAsync(url)).Result;
 
-                if (response != null && response.IsSuccessStatusCode)
-                {
-                    string responseContent = (response.Content.ReadAsStringAsync()).Result;
-                }
-            }
-            catch (Exception ex)
+            if (response != null && response.IsSuccessStatusCode)
             {
-                Console.WriteLine("Hata oluştu: " + ex.Message);
-                throw ex;
+                string responseContent = (response.Content.ReadAsStringAsync()).Result;
             }
         }
         private int CreateOrUpdateEmployee(ViewModels.EmployeeViewModel employee, bool isCreate)
         {
             using (HttpClient client = new HttpClient())
             {
-                try
-                {
-                    HttpResponseMessage response;
+                HttpResponseMessage response;
 
-                    if (isCreate)
-                    {
-                        string url = apiUrl + "Create";
-                        HttpRequestMessage requestMessage = new HttpRequestMessage();
-                        requestMessage.Content = JsonContent.Create(employee);
-                        requestMessage.Method = HttpMethod.Post;
-                        client.BaseAddress = new Uri(url);
-                        response = (client.SendAsync(requestMessage)).Result;
-                        string responseContent = (response.Content.ReadAsStringAsync()).Result;
-                        if (int.TryParse(responseContent, out var id))
-                            return id;
-                    }
-                    else
-                    {
-                        string url = "https://localhost:7054/api/Employee/Update/" + employee.Id;
-                        string url2 = "https://localhost:7054/api/Employee/Update2";
-                        HttpRequestMessage requestMessage = new HttpRequestMessage();
-                        requestMessage.Content = JsonContent.Create(employee);
-                        requestMessage.Method = HttpMethod.Put;
-                        client.BaseAddress = new Uri(url);
-                        requestMessage.RequestUri = new Uri(url);
-                        response = (client.SendAsync(requestMessage)).Result;
-                        string responseContent = (response.Content.ReadAsStringAsync()).Result;
-                    }
-                    return 0;
-                }
-                catch (Exception ex)
+                if (isCreate)
                 {
-                    Console.WriteLine("Hata oluştu: " + ex.Message);
-                    throw ex;
+                    string url = apiUrl + "Create";
+                    HttpRequestMessage requestMessage = new HttpRequestMessage();
+                    requestMessage.Content = JsonContent.Create(employee);
+                    requestMessage.Method = HttpMethod.Post;
+                    client.BaseAddress = new Uri(url);
+                    response = (client.SendAsync(requestMessage)).Result;
+                    string responseContent = (response.Content.ReadAsStringAsync()).Result;
+                    if (int.TryParse(responseContent, out var id))
+                        return id;
                 }
+                else
+                {
+                    string url = apiUrl + "Update/" + employee.Id;
+                    HttpRequestMessage requestMessage = new HttpRequestMessage();
+                    requestMessage.Content = JsonContent.Create(employee);
+                    requestMessage.Method = HttpMethod.Put;
+                    client.BaseAddress = new Uri(url);
+                    requestMessage.RequestUri = new Uri(url);
+                    response = (client.SendAsync(requestMessage)).Result;
+                    string responseContent = (response.Content.ReadAsStringAsync()).Result;
+                }
+                return 0;
             }
         }
     }

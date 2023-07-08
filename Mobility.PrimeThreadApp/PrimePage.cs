@@ -9,10 +9,20 @@
         private static readonly object lockObject = new object();
         static BindingSource bindingSource1 = new BindingSource();
         static BindingSource bindingSource2 = new BindingSource();
-        //public static ObservableCollection<int> Numbers1 = new ObservableCollection<int>();
-        //public static ObservableCollection<int> Numbers2 = new ObservableCollection<int>();
+        bool IsStartedFirstThread = false;
+        bool IsStartedSecondThread = false;
+        bool IsStopCalculatingFirstThread = false;
+        bool IsStopCalculatingSecondThread = false;
         private async void ThreadPrime1_Click(object sender, EventArgs e)
         {
+            if (IsStartedFirstThread)
+            {
+                MessageBox.Show("Thread1 zaten aktif durumda", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (IsStopCalculatingFirstThread)
+                IsStopCalculatingFirstThread = false;
+            IsStartedFirstThread = true;
             Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
             newWindowThread.SetApartmentState(ApartmentState.STA);
             newWindowThread.IsBackground = true;
@@ -21,6 +31,14 @@
 
         private void ThreadPrime2_Click(object sender, EventArgs e)
         {
+            if (IsStartedSecondThread)
+            {
+                MessageBox.Show("Thread2 zaten aktif durumda", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (IsStopCalculatingSecondThread)
+                IsStopCalculatingSecondThread = false;
+            IsStartedSecondThread = true;
             Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint2));
             newWindowThread.SetApartmentState(ApartmentState.STA);
             newWindowThread.IsBackground = true;
@@ -30,14 +48,11 @@
         {
             for (int i = 0; i < int.Parse(txtThread1.Text); i++)
             {
+                if (IsStopCalculatingFirstThread)
+                    break;
+
                 if (IsPrime(i))
                 {
-                    //if (Thread1ListBox1.InvokeRequired)
-                    //{
-                    //    SetValueToListBox dlgt = new SetValueToListBox(SetData);
-                    //    this.Invoke(dlgt, new object[] { i });
-                    //    Thread1ListBox1.Refresh();
-                    //}
                     lock (lockObject)
                     {
                         bindingSource1.Add(i);
@@ -55,6 +70,8 @@
         {
             for (int i = 0; i < int.Parse(txtThread2.Text); i++)
             {
+                if (IsStopCalculatingSecondThread)
+                    break;
                 if (IsPrime(i))
                 {
                     lock (lockObject)
@@ -92,6 +109,10 @@
 
         private void Reset_Click(object sender, EventArgs e)
         {
+            IsStopCalculatingFirstThread = true;
+            IsStopCalculatingSecondThread = true;
+            IsStartedFirstThread = false;
+            IsStartedSecondThread = false;
             lock (lockObject)
             {
                 bindingSource1.Clear();
@@ -118,6 +139,28 @@
         private void Thread2ListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtThread2_TextChanged(object sender, EventArgs e)
+        {
+            IsStopCalculatingSecondThread = true;
+            IsStartedSecondThread = false;
+            lock (lockObject)
+            {
+                bindingSource2.Clear();
+            }
+            Thread2ListBox2.Invoke(new Action(() => Thread2ListBox2.Refresh()));
+        }
+
+        private void txtThread1_TextChanged(object sender, EventArgs e)
+        {
+            IsStopCalculatingFirstThread = true;
+            IsStartedFirstThread = false;
+            lock (lockObject)
+            {
+                bindingSource1.Clear();
+            }
+            Thread1ListBox1.Invoke(new Action(() => Thread1ListBox1.Refresh()));
         }
     }
 }

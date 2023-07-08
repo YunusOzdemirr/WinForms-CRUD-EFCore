@@ -92,6 +92,7 @@
             txtThread1.Name = "txtThread1";
             txtThread1.Size = new Size(240, 23);
             txtThread1.TabIndex = 7;
+            txtThread1.TextChanged += txtThread1_TextChanged;
             // 
             // txtThread2
             // 
@@ -99,6 +100,7 @@
             txtThread2.Name = "txtThread2";
             txtThread2.Size = new Size(240, 23);
             txtThread2.TabIndex = 8;
+            txtThread2.TextChanged += txtThread2_TextChanged;
             // 
             // PrimePage
             // 
@@ -125,8 +127,8 @@
         private Button ThreadPrime2;
         private Button Reset;
         private TextBox txtThread1;
-        private  TextBox txtThread2;
+        private TextBox txtThread2;
         private ListBox Thread1ListBox1;
-        private  ListBox Thread2ListBox2;
+        private ListBox Thread2ListBox2;
     }
 }
