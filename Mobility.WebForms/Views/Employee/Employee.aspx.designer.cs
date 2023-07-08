@@ -35,5 +35,6 @@ namespace Mobility.WebForms.Views.Employee
         protected global::System.Web.UI.WebControls.TextBox txtEditMailAddress;
         protected global::System.Web.UI.WebControls.TextBox txtEditSalary;
         protected global::System.Web.UI.WebControls.TextBox txtEditAge;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeId;
     }
 }

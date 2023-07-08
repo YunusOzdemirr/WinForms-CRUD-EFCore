@@ -51,14 +51,13 @@ namespace Mobility.ExternalServiceApi.Controllers
             return Ok(isSuccessfull);
         }
 
-
         [HttpDelete("Delete/{id}")]
         [ProducesResponseType(typeof(int), StatusCodes.Status200OK)]
         public async Task<IActionResult> Delete(int id)
         {
             var isSuccessfull = await _employeeRepository.HardDeleteByIdAsync(id, CancellationToken.None);
             if (!isSuccessfull)
-                return BadRequest();
+                return BadRequest("Yanlış İstek");
             return Ok(isSuccessfull);
         }
 

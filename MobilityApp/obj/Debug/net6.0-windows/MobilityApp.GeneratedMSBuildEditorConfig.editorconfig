@@ -14,4 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MobilityApp
-build_property.ProjectDir = C:\Users\yunus\source\repos\MobilityPay\MobilityApp\
+build_property.ProjectDir = C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\MobilityApp\

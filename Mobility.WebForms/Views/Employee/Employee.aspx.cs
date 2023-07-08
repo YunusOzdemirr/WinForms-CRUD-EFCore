@@ -1,5 +1,6 @@
 ﻿using Mobility.WebForms.Data.Context;
 using System;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -8,12 +9,12 @@ namespace Mobility.WebForms.Views.Employee
 {
     public partial class Employee : Page
     {
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             BindEmployees();
         }
-        protected  void SaveEmployee_Click(object sender, EventArgs e)
+        protected void SaveEmployee_Click(object sender, EventArgs e)
         {
             string firstName = txtFirstName.Text;
             string lastName = txtLastName.Text;
@@ -34,7 +35,7 @@ namespace Mobility.WebForms.Views.Employee
             using (MobilityContext context = new MobilityContext())
             {
                 context.Employees.Add(newEmployee);
-                 context.SaveChanges();
+                context.SaveChanges();
             }
             BindEmployees();
         }
@@ -51,26 +52,65 @@ namespace Mobility.WebForms.Views.Employee
                 if (employee != null)
                 {
                     // Çalışan bilgilerini güncelleyin
-                    employee.FirstName = txtEditFirstName.Text;
-                    employee.LastName = txtEditLastName.Text;
-                    employee.MailAddress = txtEditMailAddress.Text;
-                    employee.Salary = Convert.ToDecimal(txtEditSalary.Text);
-                    employee.Age = Convert.ToInt32(txtEditAge.Text);
+                    txtEmployeeId.Text = employee.Id.ToString();
+                    txtFirstName.Text = employee.FirstName;
+                    txtLastName.Text = employee.LastName;
+                    txtMailAddress.Text = employee.MailAddress;
+                    txtSalary.Text = employee.Salary.ToString();
+                    txtAge.Text = employee.Age.ToString();
+
+                }
+            }
+        }
+        protected void UpdateEmployee_Click(object sender, EventArgs e)
+        {
+            var employeeId = int.Parse(txtEmployeeId.Text);
+            int age = int.Parse(txtAge.Text);
+
+            // Employee oluşturma işlemleri
+
+            using (MobilityContext dbContext = new MobilityContext())
+            {
+                Models.Employee employee = dbContext.Employees.FirstOrDefault(emp => emp.Id == employeeId);
+
+                if (employee != null)
+                {
+                    employee.FirstName = txtFirstName.Text;
+                    employee.LastName = txtLastName.Text;
+                    employee.MailAddress = txtMailAddress.Text;
+                    employee.Salary = Convert.ToDecimal(txtSalary.Text);
+                    employee.Age = Convert.ToInt32(txtAge.Text);
 
                     dbContext.SaveChanges();
                 }
             }
+            ClearTexts();
+            BindEmployees();
 
-            // Çalışanları 
         }
         protected void DeleteEmployee_Click(object sender, EventArgs e)
         {
-            // Olay işleyici kodu
+            // Seçilen çalışanın EmployeeId değerini al
+            Button deleteButton = (Button)sender;
+            int employeeId = Convert.ToInt32(deleteButton.CommandArgument);
+
+            // EmployeeId'ye göre çalışanı veritabanından sil
+            using (MobilityContext dbContext = new MobilityContext())
+            {
+                Models.Employee employee = dbContext.Employees.FirstOrDefault(emp => emp.Id == employeeId);
+
+                if (employee != null)
+                {
+                    // Çalışanı veritabanından silme işlemini gerçekleştirin
+                    dbContext.Employees.Remove(employee);
+                    dbContext.SaveChanges();
+
+                    // Silme işleminden sonra çalışan listesini güncelleyin
+                    BindEmployees();
+                }
+            }
         }
-        protected void Cancel_Click(object sender, EventArgs e)
-        {
-            // Olay işleyici kodu
-        }
+
 
         protected void BindEmployees()
         {
@@ -79,6 +119,20 @@ namespace Mobility.WebForms.Views.Employee
             gridEmployees.DataSource = employees;
             gridEmployees.DataBind();
         }
+        protected void Cancel_Click(object sender, EventArgs e)
+        {
+            ClearTexts();
+        }
+        private void ClearTexts()
+        {
+            txtEmployeeId.Text = string.Empty;
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
+            txtMailAddress.Text = string.Empty;
+            txtSalary.Text = string.Empty;
+            txtAge.Text = string.Empty;
+        }
+
     }
 
 }

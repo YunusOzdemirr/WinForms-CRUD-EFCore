@@ -13,5 +13,6 @@ namespace MobilityApp.ViewModels
         public string LastName { get; set; }
         public string MailAddress { get; set; }
         public decimal Salary { get; set; }
+        public int Age { get; set; }
     }
 }

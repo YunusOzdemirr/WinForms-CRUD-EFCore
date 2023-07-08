@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Employee.aspx.cs" Inherits="Mobility.WebForms.Views.Employee.Employee" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation="false" CodeFile="Employee.aspx.cs" Inherits="Mobility.WebForms.Views.Employee.Employee" %>
 
 <!DOCTYPE html>
 <script runat="server">
@@ -35,6 +35,10 @@
         <!-- Create or Update Employee -->
         <h2>Create or Update Employee</h2>
         <div>
+            <label for="Id">Id</label>
+            <asp:TextBox ID="txtEmployeeId" runat="server" CssClass="form-control"></asp:TextBox>
+        </div>
+        <div>
             <label for="txtFirstName">First Name</label>
             <asp:TextBox ID="txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
         </div>
@@ -56,6 +60,7 @@
         </div>
         <div>
             <asp:Button ID="btnSave" runat="server" Text="Save" OnClick="SaveEmployee_Click" CssClass="btn btn-primary" />
+            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="UpdateEmployee_Click" CssClass="btn btn-primary" />
             <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="Cancel_Click" CssClass="btn btn-secondary" />
         </div>
     </form>

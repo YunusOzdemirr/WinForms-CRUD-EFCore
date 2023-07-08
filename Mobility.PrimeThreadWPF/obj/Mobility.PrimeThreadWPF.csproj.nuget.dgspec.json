@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj": {}
+    "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj": {
+    "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj",
+        "projectUniqueName": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj",
         "projectName": "Mobility.PrimeThreadWPF",
-        "projectPath": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj",
+        "projectPath": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadWPF\\Mobility.PrimeThreadWPF.csproj",
         "packagesPath": "C:\\Users\\yunus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadWPF\\obj\\",
+        "outputPath": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadWPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

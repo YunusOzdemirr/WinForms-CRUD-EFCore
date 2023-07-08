@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.Data\\Mobility.Data.csproj": {}
+    "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.Data\\Mobility.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.Data\\Mobility.Data.csproj": {
+    "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.Data\\Mobility.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.Data\\Mobility.Data.csproj",
+        "projectUniqueName": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.Data\\Mobility.Data.csproj",
         "projectName": "Mobility.Data",
-        "projectPath": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.Data\\Mobility.Data.csproj",
+        "projectPath": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.Data\\Mobility.Data.csproj",
         "packagesPath": "C:\\Users\\yunus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.Data\\obj\\",
+        "outputPath": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

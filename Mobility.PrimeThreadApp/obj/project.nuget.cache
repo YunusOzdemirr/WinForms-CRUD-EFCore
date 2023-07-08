@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iivwlAoIpjhvoRDfkMs6BUbdAd/VZpAhCSKGdIOwr6iKRsy5Xk8d0xD1Ei4224/RN5mMHu5tsueD6hUTy6/+Aw==",
+  "dgSpecHash": "mYL2Q/AlXSEzw8le2/sDMqxCGxwDfb2u9MZX5fEXDWd49O+K7L1CZqwd33vxNVZv9wLthId/3pZf91chgiS3VQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yunus\\source\\repos\\MobilityPay\\Mobility.PrimeThreadApp\\Mobility.PrimeThreadApp.csproj",
+  "projectFilePath": "C:\\Users\\yunus\\Documents\\GitHub\\WinForms-CRUD-EFCore\\Mobility.PrimeThreadApp\\Mobility.PrimeThreadApp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
