@@ -12,3 +12,17 @@ C:\Users\yunus\source\repos\MobilityPay\Mobility.Data\obj\Release\net6.0\refint\
 C:\Users\yunus\source\repos\MobilityPay\Mobility.Data\obj\Release\net6.0\Mobility.Data.pdb
 C:\Users\yunus\source\repos\MobilityPay\Mobility.Data\obj\Release\net6.0\Mobility.Data.genruntimeconfig.cache
 C:\Users\yunus\source\repos\MobilityPay\Mobility.Data\obj\Release\net6.0\ref\Mobility.Data.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\bin\Release\net6.0\Mobility.Data.deps.json
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\bin\Release\net6.0\Mobility.Data.runtimeconfig.json
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\bin\Release\net6.0\Mobility.Data.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\bin\Release\net6.0\Mobility.Data.pdb
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.csproj.AssemblyReference.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.AssemblyInfoInputs.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.AssemblyInfo.cs
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.csproj.CoreCompileInputs.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\refint\Mobility.Data.dll
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.pdb
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\Mobility.Data.genruntimeconfig.cache
+C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.Data\obj\Release\net6.0\ref\Mobility.Data.dll

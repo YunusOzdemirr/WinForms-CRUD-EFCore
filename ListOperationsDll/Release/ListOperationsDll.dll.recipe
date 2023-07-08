@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\yunus\source\repos\MobilityPay\Release\ListOperationsDll.dll</FullPath>
+      <FullPath>C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Release\ListOperationsDll.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
