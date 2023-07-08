@@ -23,7 +23,6 @@ C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\bin
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\bin\Debug\net6.0-windows\Mobility.PrimeThreadApp.pdb
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.csproj.AssemblyReference.cache
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.PrimePage.resources
-C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.PrimePageThread.resources
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.csproj.GenerateResource.cache
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\yunus\Documents\GitHub\WinForms-CRUD-EFCore\Mobility.PrimeThreadApp\obj\Debug\net6.0-windows\Mobility.PrimeThreadApp.AssemblyInfoInputs.cache

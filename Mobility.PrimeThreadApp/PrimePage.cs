@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
-namespace Mobility.PrimeThreadApp
+﻿namespace Mobility.PrimeThreadApp
 {
     public partial class PrimePage : Form
     {
@@ -17,63 +6,101 @@ namespace Mobility.PrimeThreadApp
         {
             InitializeComponent();
         }
+        private static readonly object lockObject = new object();
         static BindingSource bindingSource1 = new BindingSource();
         static BindingSource bindingSource2 = new BindingSource();
-
+        //public static ObservableCollection<int> Numbers1 = new ObservableCollection<int>();
+        //public static ObservableCollection<int> Numbers2 = new ObservableCollection<int>();
         private async void ThreadPrime1_Click(object sender, EventArgs e)
         {
-            try
-            {
-
             Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint));
             newWindowThread.SetApartmentState(ApartmentState.STA);
             newWindowThread.IsBackground = true;
             newWindowThread.Start();
-
-                for (int i = 0; i < 3600; i++)
-            {
-                if (IsPrime(i))
-                {
-                    bindingSource1.Add(i);
-                    Thread1ListBox1.Refresh();
-                }
-                Task.Delay(1000).Wait();
-            }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
         }
 
         private void ThreadPrime2_Click(object sender, EventArgs e)
         {
-            Thread newWindowThread = new Thread(new ThreadStart(PrimeCounter));
+            Thread newWindowThread = new Thread(new ThreadStart(ThreadStartingPoint2));
+            newWindowThread.SetApartmentState(ApartmentState.STA);
             newWindowThread.IsBackground = true;
             newWindowThread.Start();
-
         }
         private void ThreadStartingPoint()
         {
-            PrimePageThread tempWindow = new PrimePageThread();
-            tempWindow.Show();
-        }
-
-        public static void PrimeCounter()
-        {
-            for (int i = 0; i < 3600; i++)
+            for (int i = 0; i < int.Parse(txtThread1.Text); i++)
             {
                 if (IsPrime(i))
-                    SetData(i);
+                {
+                    //if (Thread1ListBox1.InvokeRequired)
+                    //{
+                    //    SetValueToListBox dlgt = new SetValueToListBox(SetData);
+                    //    this.Invoke(dlgt, new object[] { i });
+                    //    Thread1ListBox1.Refresh();
+                    //}
+                    lock (lockObject)
+                    {
+                        bindingSource1.Add(i);
+                    }
+                    Thread1ListBox1.Invoke((Action)(() =>
+                    {
+                        Thread1ListBox1.DataSource = null;
+                        Thread1ListBox1.DataSource = bindingSource1;
+                    }));
+                }
+                Task.Delay(1000).Wait();
             }
         }
+        private void ThreadStartingPoint2()
+        {
+            for (int i = 0; i < int.Parse(txtThread2.Text); i++)
+            {
+                if (IsPrime(i))
+                {
+                    lock (lockObject)
+                    {
+                        bindingSource2.Add(i);
+                    }
+                    Thread2ListBox2.Invoke((Action)(() =>
+                    {
+                        Thread2ListBox2.DataSource = null;
+                        Thread2ListBox2.DataSource = bindingSource2;
+                    }));
+                }
+                Task.Delay(250).Wait();
+            }
+        }
+
+        delegate void SetValueToListBox(int text);
+        delegate void ResetListBoxs();
         public static void SetData(int i)
         {
             bindingSource2.Add(i);
-            Thread2ListBox2.Refresh();
         }
+        public static void SetData2(int i)
+        {
+            bindingSource1.Add(i);
+        }
+
+        private void PrimePage_Load(object sender, EventArgs e)
+        {
+            Thread1ListBox1.DataSource = bindingSource1;
+            Thread2ListBox2.DataSource = bindingSource2;
+            txtThread1.Text = 100.ToString();
+            txtThread2.Text = 100.ToString();
+        }
+
+        private void Reset_Click(object sender, EventArgs e)
+        {
+            lock (lockObject)
+            {
+                bindingSource1.Clear();
+                bindingSource2.Clear();
+            }
+            Thread1ListBox1.Invoke(new Action(() => Thread1ListBox1.Refresh()));
+            Thread2ListBox2.Invoke(new Action(() => Thread2ListBox2.Refresh()));
+        }
+
         public static bool IsPrime(int number)
         {
             if (number < 2)
@@ -86,20 +113,6 @@ namespace Mobility.PrimeThreadApp
             }
 
             return true;
-        }
-
-        private void PrimePage_Load(object sender, EventArgs e)
-        {
-            Thread1ListBox1.DataSource = bindingSource1;
-            Thread2ListBox2.DataSource = bindingSource2;
-        }
-
-        private void Reset_Click(object sender, EventArgs e)
-        {
-            bindingSource1.Clear();
-            bindingSource2.Clear();
-            Thread1ListBox1.DataSource = bindingSource1;
-            Thread2ListBox2.DataSource = bindingSource2;
         }
 
         private void Thread2ListBox2_SelectedIndexChanged(object sender, EventArgs e)

@@ -33,11 +33,13 @@
             Reset = new Button();
             Thread1ListBox1 = new ListBox();
             Thread2ListBox2 = new ListBox();
+            txtThread1 = new TextBox();
+            txtThread2 = new TextBox();
             SuspendLayout();
             // 
             // ThreadPrime1
             // 
-            ThreadPrime1.Location = new Point(126, 74);
+            ThreadPrime1.Location = new Point(126, 261);
             ThreadPrime1.Name = "ThreadPrime1";
             ThreadPrime1.Size = new Size(240, 23);
             ThreadPrime1.TabIndex = 0;
@@ -47,7 +49,7 @@
             // 
             // ThreadPrime2
             // 
-            ThreadPrime2.Location = new Point(468, 74);
+            ThreadPrime2.Location = new Point(468, 261);
             ThreadPrime2.Name = "ThreadPrime2";
             ThreadPrime2.Size = new Size(240, 23);
             ThreadPrime2.TabIndex = 1;
@@ -84,11 +86,27 @@
             Thread2ListBox2.TabIndex = 6;
             Thread2ListBox2.SelectedIndexChanged += Thread2ListBox2_SelectedIndexChanged;
             // 
+            // txtThread1
+            // 
+            txtThread1.Location = new Point(126, 102);
+            txtThread1.Name = "txtThread1";
+            txtThread1.Size = new Size(240, 23);
+            txtThread1.TabIndex = 7;
+            // 
+            // txtThread2
+            // 
+            txtThread2.Location = new Point(468, 102);
+            txtThread2.Name = "txtThread2";
+            txtThread2.Size = new Size(240, 23);
+            txtThread2.TabIndex = 8;
+            // 
             // PrimePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtThread2);
+            Controls.Add(txtThread1);
             Controls.Add(Thread2ListBox2);
             Controls.Add(Thread1ListBox1);
             Controls.Add(Reset);
@@ -98,6 +116,7 @@
             Text = "PrimePage";
             Load += PrimePage_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -105,7 +124,9 @@
         private Button ThreadPrime1;
         private Button ThreadPrime2;
         private Button Reset;
-        private static ListBox Thread1ListBox1;
-        private static ListBox Thread2ListBox2;
+        private TextBox txtThread1;
+        private  TextBox txtThread2;
+        private ListBox Thread1ListBox1;
+        private  ListBox Thread2ListBox2;
     }
 }
